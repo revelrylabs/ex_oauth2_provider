@@ -54,7 +54,7 @@ defmodule ExOauth2Provider.Token.Strategy.PasswordTest do
   test "#grant/2 error when invalid password" do
     params = Map.merge(@valid_request, %{"password" => "invalid"})
 
-    assert Token.grant(params, otp_app: :ex_oauth2_provider) == {:error, :unauthorized, :unauthorized}
+    assert Token.grant(params, otp_app: :ex_oauth2_provider) == {:error, :invalid_password, :unauthorized}
   end
 
   test "#grant/1 error when invalid scope" do

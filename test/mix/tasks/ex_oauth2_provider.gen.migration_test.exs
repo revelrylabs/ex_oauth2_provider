@@ -50,7 +50,7 @@ defmodule Mix.Tasks.ExOauth2Provider.Gen.MigrationTest do
 
       file = @migrations_path |> Path.join(migration_file) |> File.read!()
 
-      refute file =~ "add :owner_id, :integer, null: false"
+      refute file =~ "add :owner_id, :integer"
       refute file =~ "add :resource_owner_id, :integer"
       assert file =~ "add :owner_id, references(:users, on_delete: :nothing, type: :binary_id)"
       assert file =~ "add :resource_owner_id, references(:users, on_delete: :nothing, type: :binary_id)"
